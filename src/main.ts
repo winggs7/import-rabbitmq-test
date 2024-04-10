@@ -8,15 +8,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
 
-  // const port: number = configService.get<number>('app.http.port');
-
-  // app.connectMicroservice<MicroserviceOptions>({
-  //   transport: Transport.TCP,
-  //   options: {
-  //     port: port,
-  //   },
-  // });
-
   const rmqUser: string = configService.get<string>(
     'microservice.rabbitmq.user',
   );
